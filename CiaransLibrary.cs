@@ -128,4 +128,36 @@ public struct CiaransLibrary
         return colliders.ToArray();
 
     }
+
+    /// <summary>
+    /// Returns true if a specific value is within a specific range
+    /// </summary>
+    /// <param name="value">The value to be clamped</param>
+    /// <param name="min">The smallest you want the value to be</param>
+    /// <param name="max">the largest you want the value to be</param>
+    /// <returns></returns>
+    bool Clamp(float value, float min, float max)
+    {
+        if (value < max || value > min)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Returns true if a specific value is within a specific range
+    /// </summary>
+    /// <param name="value">The value to be clamped</param>
+    /// <param name="min">The smallest you want the value to be</param>
+    /// <param name="max">the largest you want the value to be</param>
+    /// <returns></returns>
+    bool Clamp(int value, int min, int max)
+    {
+        if (value < max || value > min)
+        {
+            return true;
+        }
+        return false;
+    }
 }
