@@ -160,4 +160,28 @@ public struct CiaransLibrary
         }
         return false;
     }
+
+    /// <summary>
+    /// Returns true if an unbroken line, heading in a specified direction, can be trance to a specified object
+    /// </summary>
+    /// <param name="origin">line origin</param>
+    /// <param name="direction">the direction the line will go in</param>
+    /// <param name="target">the target object</param>
+    /// <returns></returns>
+    public static bool CheckIfLineOfSightUnbroken(Vector3 origin, Vector3 direction, GameObject target)
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(origin, direction, out hit))
+        {
+            if (hit.transform.gameObject == target)
+            {
+                return true;
+            }
+        }
+
+
+        return false;
+    }
+   
 }
