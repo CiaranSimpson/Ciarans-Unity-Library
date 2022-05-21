@@ -136,7 +136,7 @@ public struct CiaransLibrary
     /// <param name="min">The smallest you want the value to be</param>
     /// <param name="max">the largest you want the value to be</param>
     /// <returns></returns>
-    bool Clamp(float value, float min, float max)
+    public static bool Clamp(float value, float min, float max)
     {
         if (value < max || value > min)
         {
@@ -152,7 +152,7 @@ public struct CiaransLibrary
     /// <param name="min">The smallest you want the value to be</param>
     /// <param name="max">the largest you want the value to be</param>
     /// <returns></returns>
-    bool Clamp(int value, int min, int max)
+    public static bool Clamp(int value, int min, int max)
     {
         if (value < max || value > min)
         {
