@@ -168,6 +168,31 @@ public struct CiaransLibrary
     /// <param name="direction">the direction the line will go in</param>
     /// <param name="target">the target object</param>
     /// <returns></returns>
+    public static bool CheckIfLineOfSightUnbroken(Vector3 origin, GameObject target)
+    {
+        RaycastHit hit;
+
+        Vector3 direction = GetDirection(origin, target.transform.position);
+
+        if (Physics.Raycast(origin, direction, out hit))
+        {
+            if (hit.transform.gameObject == target)
+            {
+                return true;
+            }
+        }
+
+
+        return false;
+    }
+
+    /// <summary>
+    /// Returns true if an unbroken line, heading in a specified direction, can be trance to a specified object
+    /// </summary>
+    /// <param name="origin">line origin</param>
+    /// <param name="direction">the direction the line will go in</param>
+    /// <param name="target">the target object</param>
+    /// <returns></returns>
     public static bool CheckIfLineOfSightUnbroken(Vector3 origin, Vector3 direction, GameObject target)
     {
         RaycastHit hit;
@@ -183,5 +208,26 @@ public struct CiaransLibrary
 
         return false;
     }
-   
+
+    /// <summary>
+    /// Creates and returns a copy of a specified object, only a specified amount larger and with a specified material. For best results, the specified material should render only backfaces.
+    /// </summary>
+    /// <param name="original">the original object. </param>
+    /// <param name="size"> how much bigger the copy should be</param>
+    /// <param name="materialThatRendersOnlyBackfaces">the material the copy will use. this should only rende backfaces.</param>
+    /// <returns></returns>
+    public static GameObject CreateInversedHull (GameObject original, float size, Material materialThatRendersOnlyBackfaces)
+    {
+        GameObject iHull =GameObject.Instantiate(original);
+
+        iHull.transform.localScale = iHull.transform.localScale * size;
+        iHull.GetComponent<MeshRenderer>().material = materialThatRendersOnlyBackfaces;
+        //if(iHull.GetComponent<MeshFilter>())
+        //{
+        //    Mesh mesh = iHull.GetComponent<MeshFilter>().mesh;
+             //id like to flip the mesh's normals via code, but i cant seem to. gonna just use materials instead for now
+        //}
+
+        return iHull;
+    }
 }
