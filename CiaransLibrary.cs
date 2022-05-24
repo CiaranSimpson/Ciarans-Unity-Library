@@ -16,7 +16,7 @@ public struct CiaransLibrary
     {
         Vector3 direction;
         direction = (pointA - pointB).normalized;
-        return direction; 
+        return -direction; 
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ public struct CiaransLibrary
         {
             direction = (pointA - pointB);
         }
-        return direction;
+        return -direction;
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ public struct CiaransLibrary
     {
         Vector2 direction;
         direction = (pointA - pointB).normalized;
-        return direction;
+        return -direction;
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ public struct CiaransLibrary
         {
             direction = (pointA - pointB);
         }
-        return direction;
+        return -direction;
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ public struct CiaransLibrary
     {
         Vector4 direction;
         direction = (pointA - pointB).normalized;
-        return direction;
+        return -direction;
     }
 
     /// <summary>
@@ -100,7 +100,7 @@ public struct CiaransLibrary
         {
             direction = (pointA - pointB);
         }
-        return direction;
+        return -direction;
     }
 
     /// <summary>
@@ -218,7 +218,7 @@ public struct CiaransLibrary
     /// <returns></returns>
     public static GameObject CreateInversedHull (GameObject original, float size, Material materialThatRendersOnlyBackfaces)
     {
-        GameObject iHull =GameObject.Instantiate(original);
+        GameObject iHull = GameObject.Instantiate(original);
 
         iHull.transform.localScale = iHull.transform.localScale * size;
         iHull.GetComponent<MeshRenderer>().material = materialThatRendersOnlyBackfaces;
