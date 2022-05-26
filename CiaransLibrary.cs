@@ -208,7 +208,8 @@ public struct CiaransLibrary
 
         return false;
     }
-
+    
+    //this might not work
     /// <summary>
     /// Creates and returns a copy of a specified object, only a specified amount larger and with a specified material. For best results, the specified material should render only backfaces.
     /// </summary>
