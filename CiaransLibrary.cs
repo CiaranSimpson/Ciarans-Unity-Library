@@ -111,7 +111,7 @@ public struct CiaransLibrary
     /// <param name="range">the range of the cone</param>
     /// <param name="angle">the angle of the cone</param>
     /// <returns></returns>
-    public static Collider[] OverlapCone(Vector3 position, Vector3 forwardDirection, float range, float angle)
+    public static Collider[] OverlapCone(Vector3 position, Vector3 forwardDirection, float range, float angle) //dousnt behave as I expect, working on it.
     {
         var CollidersFromOverlapSphere = Physics.OverlapSphere(position, range);
         List<Collider> colliders = new List<Collider>();
@@ -120,7 +120,7 @@ public struct CiaransLibrary
             Vector3 direction = GetDirection(position, collider.transform.position, true);
             float angleToCollider = Vector3.Angle(forwardDirection, direction);
 
-            if (angleToCollider > angle) // if angle to collider is greater than angle
+            if (angleToCollider < angle) // if angle to collider is greater than angle
             {
                 colliders.Add(collider);
             }
@@ -208,8 +208,7 @@ public struct CiaransLibrary
 
         return false;
     }
-    
-    //this might not work
+
     /// <summary>
     /// Creates and returns a copy of a specified object, only a specified amount larger and with a specified material. For best results, the specified material should render only backfaces.
     /// </summary>
@@ -230,5 +229,39 @@ public struct CiaransLibrary
         //}
 
         return iHull;
+    }
+
+    /// <summary>
+    /// Us as parameter in List.Sort() to bubble sort that list.
+    /// </summary>
+    /// <returns></returns>
+    public static int BubbleSort(int a, int b) 
+    {
+        if (a < b)
+        {
+            return 1;
+        }
+        else if (a > b)
+        {
+            return -1;
+        }
+        return 0;
+    }
+
+    /// <summary>
+    /// Us as parameter in List.Sort() to bubble sort that list.
+    /// </summary>
+    /// <returns></returns>
+    public static int BubbleSort(float a, float b)
+    {
+        if (a < b)
+        {
+            return 1;
+        }
+        else if (a > b)
+        {
+            return -1;
+        }
+        return 0;
     }
 }
