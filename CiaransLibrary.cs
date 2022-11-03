@@ -209,27 +209,7 @@ public struct CiaransLibrary
         return false;
     }
 
-    /// <summary>
-    /// Creates and returns a copy of a specified object, only a specified amount larger and with a specified material. For best results, the specified material should render only backfaces.
-    /// </summary>
-    /// <param name="original">the original object. </param>
-    /// <param name="size"> how much bigger the copy should be</param>
-    /// <param name="materialThatRendersOnlyBackfaces">the material the copy will use. this should only rende backfaces.</param>
-    /// <returns></returns>
-    public static GameObject CreateInversedHull (GameObject original, float size, Material materialThatRendersOnlyBackfaces)
-    {
-        GameObject iHull = GameObject.Instantiate(original);
-
-        iHull.transform.localScale = iHull.transform.localScale * size;
-        iHull.GetComponent<MeshRenderer>().material = materialThatRendersOnlyBackfaces;
-        //if(iHull.GetComponent<MeshFilter>())
-        //{
-        //    Mesh mesh = iHull.GetComponent<MeshFilter>().mesh;
-             //id like to flip the mesh's normals via code, but i cant seem to. gonna just use materials instead for now
-        //}
-
-        return iHull;
-    }
+    
 
     /// <summary>
     /// Us as parameter in List.Sort() to bubble sort that list.
@@ -263,5 +243,15 @@ public struct CiaransLibrary
             return -1;
         }
         return 0;
+    }
+    
+    public static int Negate (int number)
+    {
+         return -1 * number;
+    }
+    
+    public static float Negate (float number)
+    {
+         return -1 * number;
     }
 }
