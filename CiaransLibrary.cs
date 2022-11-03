@@ -111,7 +111,7 @@ public struct CiaransLibrary
     /// <param name="range">the range of the cone</param>
     /// <param name="angle">the angle of the cone</param>
     /// <returns></returns>
-    public static Collider[] OverlapCone(Vector3 position, Vector3 forwardDirection, float range, float angle) //dousnt behave as I expect, working on it.
+    public static Collider[] OverlapCone(Vector3 position, Vector3 forwardDirection, float range, float angle) 
     {
         var CollidersFromOverlapSphere = Physics.OverlapSphere(position, range);
         List<Collider> colliders = new List<Collider>();
